@@ -1,6 +1,5 @@
 
 const SectionTitle = ({subtitle, title}) => {
-    console.log(subtitle, title);
     return (
         <div className="mt-24 mb-12">
             <div className="w-4/12 mx-auto text-center border-b-4">

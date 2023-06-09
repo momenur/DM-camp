@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import './Home.css'
 import Topclass from "../Allclass/Topclass";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
+import { Helmet } from 'react-helmet-async';
 const Home = () => {
     const [classes, setClasses] = useState([])
     useEffect(() => {
@@ -12,6 +13,9 @@ const Home = () => {
     },[])
     return (
         <div className="home-bg">
+            <Helmet>
+                <title>Summer Dance | Home</title>
+            </Helmet>
             <div className="pb-4 bg-black bg-opacity-50 m-o">
                 <Banner></Banner>
                 <Topclass topclass={classes}></Topclass>

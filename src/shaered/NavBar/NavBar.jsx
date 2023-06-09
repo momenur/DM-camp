@@ -23,7 +23,7 @@ const NavBar = () => {
 
                             </ul>
                         </div>
-                        <a className="text-xl normal-case btn btn-ghost">Dance CAMP</a>
+                        <a className="text-2xl font-semibold leading-none">DM Camp <br /> <span className="text-xs border-t-2 ">Dance Master Camp</span></a>
                     </div>
                     <div className="hidden navbar-center lg:flex">
                         <ul className="px-1 menu menu-horizontal">
@@ -31,7 +31,7 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <span className="mx-8"><Link>Login</Link></span>
+                        <span className="mx-8"><Link to='login'>Login</Link></span>
                         <img className="w-[55px]" src='https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png' alt="" />
                     </div>
                 </div>

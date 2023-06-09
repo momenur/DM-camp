@@ -1,0 +1,68 @@
+[
+    {
+        "_id": "643010e0f5sfa7e52ce1e8fa65",
+        "nameClass": "Ballet Dance",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUFYrSGtWODbheuNdPrk4HUZrno4di2AnFGw&usqp=CAU",
+        "instructorName": "Gobindo Kumar",
+        "instructorEmail": "gobindo@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending",
+        "address": "Dhaka Bangladesh"
+    },
+    {
+        "_id": "643010e0f5a7e52cwse1e8fa66",
+        "name": "Tap Dance",
+        "image": "https://img.jakpost.net/c/2019/12/03/2019_12_03_83125_1575376697._large.jpg",
+        "instructorName": "Mycale Bro",
+        "instructorEmail": "mycal@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending",
+        "address": "Dhaka Bangladesh"
+    },
+    {
+        "_id": "643010e0f5a7we52ce1e8fa67",
+        "name": "Modern Dance",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL5_w4ykqQml9CDk-Ya8JNf56HohYyH9bjRg&usqp=CAU",
+        "instructorName": "Srimoti Rani",
+        "instructorEmail": "srimotia@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending",
+        "address": "Dhaka Bangladesh"
+    },
+    {
+        "_id": "643010e0f5a7e52ce1e8fa6r8",
+        "name": "Waltz Dance",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwFBzA-jt_l1FqcB-rfvcyobJxtDk8drECuQ&usqp=CAU",
+        "instructorName": "Weazifa due",
+        "instructorEmail": "weazifa@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending",
+        "address": "Dhaka Bangladesh"
+    },
+    {
+        "_id": "643010e0f5a7e52rce1e8fa69",
+        "name": "Hip hop dance",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR64dILF1Poblx5De_rX97ITHEMSTq792sBuw&usqp=CAU",
+        "instructorName": "Susmita Rani",
+        "instructorEmail": "susmita@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending",
+        "address": "Dhaka Bangladesh"
+    },
+    {
+        "_id": "643010e0f5a7e52wce1e8fa6444",
+        "name": "Salsa Dance",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTswVT_8Mof6C6bCFMZIglOvmh2325-zOjI4w&usqp=CAU",
+        "instructorName": "Marzana",
+        "instructorEmail": "marzana@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending",
+        "address": "Dhaka Bangladesh"
+    }
+]
