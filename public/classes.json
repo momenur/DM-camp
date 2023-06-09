@@ -1,0 +1,62 @@
+[
+    {
+        "_id": "643010e0f5a7e52ce1e8fa65",
+        "name": "Ballet Dance",
+        "image": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-174735550-1485733066.jpg",
+        "instructor-name": "Jhon Doe",
+        "instructor-email": "Jhondoe@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending"
+    },
+    {
+        "_id": "643010e0f5a7e52ce1e8fa65",
+        "name": "Tap Dance",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBkgjDSAzd0EOFwUkJdEuwhDaezk8-WIdFXA&usqp=CAU",
+        "instructor-name": "Abu Jakaria",
+        "instructor-email": "abu@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending"
+    },
+    {
+        "_id": "643010e0f5a7e52ce1e8fa65",
+        "name": "Modern Dance",
+        "image": "https://www.chinadailyhk.com/attachments/image/38/78/234/497682_198369/497682_198369_800_auto_jpg.jpg",
+        "instructor-name": "Krisna ji",
+        "instructor-email": "krisna@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending"
+    },
+    {
+        "_id": "643010e0f5a7e52ce1e8fa65",
+        "name": "Waltz Dance",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYvDXhSunF311ELvX7c3sXcFTUtR67YrpPe5Z6M551QEpxCNPp-qeph26l7X1zNV1QDb0&usqp=CAU",
+        "instructor-name": "Rujarew Balbet",
+        "instructor-email": "rujarew@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending"
+    },
+    {
+        "_id": "643010e0f5a7e52ce1e8fa65",
+        "name": "Hip hop dance",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRce99OYL0FBiHZzFzcrCPh20C1kQlzz6VyEw&usqp=CAU",
+        "instructor-name": "Sumit Shaha",
+        "instructor-email": "sumit@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending"
+    },
+    {
+        "_id": "643010e0f5a7e52ce1e8fa65",
+        "name": "Salsa Dance",
+        "image": "https://i0.wp.com/www.salsavida.com/wp-content/uploads/2023/01/latin-dancers-tango.jpg?fit=2000%2C1418&ssl=1",
+        "instructor-name": "Mykel Ruzarew",
+        "instructor-email": "mykel@gmail.com",
+        "seats": 50,
+        "price": 200,
+        "status": "pending"
+    }
+]
