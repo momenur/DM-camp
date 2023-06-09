@@ -9,29 +9,31 @@ const NavBar = () => {
         <li><Link>Sign Up</Link></li>
     </>
     return (
-        <div className="bg-orange-800">
-            <div className="bg-opacity-40 navbar text-neutral-content bg-slate-600">
-                <div className="navbar-start">
-                    <div className="dropdown">
-                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                        </label>
-                        <ul tabIndex={0} className="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        <div className="fixed z-10 w-full max-w-screen-xl">
+            <div className="bg-black bg-opacity-40 ">
+                <div className="navbar text-neutral-content">
+                    <div className="navbar-start">
+                        <div className="dropdown">
+                            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                            </label>
+                            <ul tabIndex={0} className="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
 
+                                {navItem}
+
+                            </ul>
+                        </div>
+                        <a className="text-xl normal-case btn btn-ghost">Dance CAMP</a>
+                    </div>
+                    <div className="hidden navbar-center lg:flex">
+                        <ul className="px-1 menu menu-horizontal">
                             {navItem}
-
                         </ul>
                     </div>
-                    <a className="text-xl normal-case btn btn-ghost">Dance CAMP</a>
-                </div>
-                <div className="hidden navbar-center lg:flex">
-                    <ul className="px-1 menu menu-horizontal">
-                        {navItem}
-                    </ul>
-                </div>
-                <div className="navbar-end">
-                    <span className="mx-8"><Link>Login</Link></span>
-                    <img className="w-[55px]" src='https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png' alt="" />
+                    <div className="navbar-end">
+                        <span className="mx-8"><Link>Login</Link></span>
+                        <img className="w-[55px]" src='https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png' alt="" />
+                    </div>
                 </div>
             </div>
         </div>
