@@ -1,10 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
+import Swal from 'sweetalert2';
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -12,10 +18,27 @@ const Login = () => {
         const password = form.password.value
         console.log(email, password);
         signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your Log In Successful',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  navigate(from, {replace: true});
+            })
+    }
+
+    const handeleGoogleSignIn = () => {
+        googleSignIn()
         .then(result => {
-           const user = result.user;
-           console.log(user); 
+            const loggedUser = result.user;
+            console.log(loggedUser);
         })
+        .catch(error => console.log(error))
     }
     return (
         <div className='loginBG'>
@@ -24,7 +47,7 @@ const Login = () => {
             </Helmet>
             <div className="min-h-screen bg-black hero bg-opacity-70">
                 <div className="flex-col hero-content ">
-                <h1 className="mb-6 text-5xl font-bold text-neutral-content">Login Now !</h1>
+                    <h1 className="mb-6 text-5xl font-bold text-neutral-content">Login Now !</h1>
                     <form onSubmit={handleLogin} className="flex-shrink-0 w-full max-w-sm shadow-2xl card bg-base-100">
                         <div className="card-body">
                             <div className="form-control">
@@ -48,8 +71,8 @@ const Login = () => {
                             </div>
                         </div>
                     </form>
-                    <button className='w-full -mt-3 btn btn-primary'> Sign In With Google</button>
-                           
+                    <button onClick={handeleGoogleSignIn} className='w-full -mt-3 btn btn-primary'> Sign In With Google</button>
+
                 </div>
             </div>
         </div>

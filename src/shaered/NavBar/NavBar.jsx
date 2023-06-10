@@ -1,13 +1,32 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const NavBar = () => {
+
+    const { logOut, user } = useContext(AuthContext)
+    console.log(user);
+    const userPhoto = user?.photoURL
     const navItem = <>
         <li><Link>Home</Link></li>
         <li><Link>Instructors</Link></li>
         <li><Link>Classes</Link></li>
-        <li><Link>Dashboard</Link></li>
-        <li><Link to='/signUp'>Sign Up</Link></li>
+        {/* <li><Link>Dashboard</Link></li> */}
+        {/* <li><Link to='/signUp'>Sign Up</Link></li> */}
+        {
+            user ? <>
+                <li><Link to='/dashboard'>Dashboard</Link></li>
+            </> : <>
+                <li><Link to='/signUp'>Sign Up</Link></li>
+            </>
+        }
     </>
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() => { })
+        .catch(error => console.log(error))
+    }
     return (
         <div className="fixed z-10 w-full max-w-screen-xl">
             <div className="bg-black bg-opacity-40 ">
@@ -31,8 +50,17 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <span className="mx-8"><Link to='/login'>Login</Link></span>
-                        <img className="w-[55px]" src='https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png' alt="" />
+                        {
+                            user ? <>
+                                <button onClick={handleLogOut} className="btn btn-ghost">Logout</button>
+                                <img className="w-[55px] rounded-full" src={userPhoto} alt="" />
+                            </> : <>
+                                <span className="mx-8"><Link to='/login'>Login</Link></span>
+                            </>
+                        }
+
+
+
                     </div>
                 </div>
             </div>
