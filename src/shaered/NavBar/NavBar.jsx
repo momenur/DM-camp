@@ -6,7 +6,7 @@ const NavBar = () => {
         <li><Link>Instructors</Link></li>
         <li><Link>Classes</Link></li>
         <li><Link>Dashboard</Link></li>
-        <li><Link>Sign Up</Link></li>
+        <li><Link to='/signUp'>Sign Up</Link></li>
     </>
     return (
         <div className="fixed z-10 w-full max-w-screen-xl">
@@ -31,7 +31,7 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <span className="mx-8"><Link to='login'>Login</Link></span>
+                        <span className="mx-8"><Link to='/login'>Login</Link></span>
                         <img className="w-[55px]" src='https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png' alt="" />
                     </div>
                 </div>

@@ -1,15 +1,27 @@
 import { Link } from 'react-router-dom';
 import './Login.css'
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 const Login = () => {
+    const {signIn} = useContext(AuthContext);
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value
         console.log(email, password);
+        signIn(email, password)
+        .then(result => {
+           const user = result.user;
+           console.log(user); 
+        })
     }
     return (
         <div className='loginBG'>
+            <Helmet>
+                <title>Summer Dance | Login</title>
+            </Helmet>
             <div className="min-h-screen bg-black hero bg-opacity-70">
                 <div className="flex-col hero-content ">
                 <h1 className="mb-6 text-5xl font-bold text-neutral-content">Login Now !</h1>
@@ -32,7 +44,7 @@ const Login = () => {
                             </div>
                             <div className="mt-6 form-control">
                                 <input className="btn btn-primary" type="submit" value="Login" />
-                                <p className='mt-4'><small>All Ready Have an Account</small> <Link to='signUp'><span className='font-semibold underline text-sky-600'>Sign Up</span></Link></p>
+                                <p className='mt-4'><small>You Have no Account</small> <Link to='signUp'><span className='font-semibold underline text-sky-600'>Sign Up</span></Link></p>
                             </div>
                         </div>
                     </form>
