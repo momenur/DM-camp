@@ -1,13 +1,20 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import { FaEye } from 'react-icons/fa';
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const [visible, setToggle] = useState(true)
+    console.log(visible);
+    let value = 'text';
+    if(visible){
+         value = 'password'
+    }
 
     const from = location.state?.from?.pathname || '/';
 
@@ -27,18 +34,18 @@ const Login = () => {
                     title: 'Your Log In Successful',
                     showConfirmButton: false,
                     timer: 1500
-                  })
-                  navigate(from, {replace: true});
+                })
+                navigate(from, { replace: true });
             })
     }
 
     const handeleGoogleSignIn = () => {
         googleSignIn()
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-        })
-        .catch(error => console.log(error))
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => console.log(error))
     }
     return (
         <div className='loginBG'>
@@ -60,14 +67,17 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                                <div className='flex items-center justify-center'>
+                                    <input type={value} name='password' placeholder="password" className="input input-bordered" />
+                                    <span onClick={() => setToggle(!visible)}><FaEye /></span>
+                                </div>
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
                             <div className="mt-6 form-control">
                                 <input className="btn btn-primary" type="submit" value="Login" />
-                                <p className='mt-4'><small>You Have no Account</small> <Link to='signUp'><span className='font-semibold underline text-sky-600'>Sign Up</span></Link></p>
+                                <p className='mt-4'><small>You Have no Account</small> <Link to='/signUp'><span className='font-semibold underline text-sky-600'>Sign Up</span></Link></p>
                             </div>
                         </div>
                     </form>

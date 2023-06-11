@@ -7,7 +7,6 @@ import SectionTitle from "../../../components/SectionTitle";
 
 // import { Pagination } from "swiper";
 const Topclass = ({ topclass }) => {
-    console.log(topclass);
     return (
         <div>
             <SectionTitle
@@ -27,7 +26,7 @@ const Topclass = ({ topclass }) => {
                 >
                     {
                         topclass.map(item => <>
-                            <SwiperSlide><DanceCard key={item._id} item={item}></DanceCard></SwiperSlide>
+                            <SwiperSlide key={item._id}><DanceCard key={item._id} item={item}></DanceCard></SwiperSlide>
                         </>)
                     }
                 </Swiper>

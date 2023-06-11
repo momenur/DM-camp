@@ -88,7 +88,7 @@ const Register = () => {
                             </div>
                             <div className="mt-6 form-control">
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />
-                                <p className='mt-4'><small>All Ready Have an Account</small> <Link to='login'><span className='font-semibold underline text-sky-600'>Login</span></Link></p>
+                                <p className='mt-4'><small>All Ready Have an Account</small> <Link to='/login'><span className='font-semibold underline text-sky-600'>Login</span></Link></p>
                             </div>
                         </div>
                     </form>
