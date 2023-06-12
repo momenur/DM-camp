@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.drawer-side a.active {
+    color: red;
+  }
+  .activeRoute a.active {
+    color: rgb(255, 255, 0);
+    background-color: transparent;
+    font-size: 18px;
+  }
+.drawer-side a {
+    color: black;
+    background-color: transparent;
+  }

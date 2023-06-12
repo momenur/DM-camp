@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useSelectedItem from "../hooks/useSelectedItem";
 
 const ClassesCart = ({item}) => {
     const {user} = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
+    const [, refetch] = useSelectedItem();
     const handleAddClass = (item) => {
         if(user && user.email){
             const selectedItem = {itemId: item._id, price: item.price, image: item.image, name: item.name, instructorName: item.instructorName, instructorEmail: item.instructorEmail, email: user.email}
@@ -20,6 +22,7 @@ const ClassesCart = ({item}) => {
             .then(res => res.json())
             .then(data => {
                 if(data.insertedId){
+                    
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
@@ -27,6 +30,7 @@ const ClassesCart = ({item}) => {
                         showConfirmButton: false,
                         timer: 1500
                       }) 
+                      refetch();
                 }
             })
         }

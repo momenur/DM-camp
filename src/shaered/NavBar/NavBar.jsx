@@ -1,23 +1,28 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import useSelectedItem from "../../hooks/useSelectedItem";
 
 const NavBar = () => {
 
-    const { logOut, user } = useContext(AuthContext)
-    console.log(user);
+    const { logOut, user, loading } = useContext(AuthContext)
+
+    const [selected] = useSelectedItem()
     const userPhoto = user?.photoURL
+    if(loading){
+        return
+    }
     const navItem = <>
-        <li><Link>Home</Link></li>
-        <li><Link to='/instructors'>Instructors</Link></li>
-        <li><Link to='/classes'>Classes</Link></li>
-        {/* <li><Link>Dashboard</Link></li> */}
-        {/* <li><Link to='/signUp'>Sign Up</Link></li> */}
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/instructors'>Instructors</NavLink></li>
+        <li><NavLink to='/classes'>Classes</NavLink></li>
+        {/* <li><NavLink>Dashboard</NavLink></li> */}
+        {/* <li><NavLink to='/signUp'>Sign Up</NavLink></li> */}
         {
             user ? <>
-                <li><Link to='/dashboard'>Dashboard</Link></li>
+                <li><NavLink to='/dashboard'>Dashboard{selected?.length || 0}</NavLink></li>
             </> : <>
-                <li><Link to='/signUp'>Sign Up</Link></li>
+                <li><NavLink to='/signUp'>Sign Up</NavLink></li>
             </>
         }
     </>
@@ -30,7 +35,7 @@ const NavBar = () => {
     return (
         <div className="fixed z-10 w-full max-w-screen-xl">
             <div className="bg-black bg-opacity-40 ">
-                <div className="navbar text-neutral-content">
+                <div className="navbar text-neutral-content activeRoute">
                     <div className="navbar-start">
                         <div className="dropdown">
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -55,7 +60,7 @@ const NavBar = () => {
                                 <button onClick={handleLogOut} className="btn btn-ghost"><span className="text-red-600">Logout</span></button>
                                 <img className="w-[55px] rounded-full" src={userPhoto} alt="" />
                             </> : <>
-                                <span className="mx-8"><Link to='/login'>Login</Link></span>
+                                <span className="mx-8"><NavLink to='/login'>Login</NavLink></span>
                             </>
                         }
 
