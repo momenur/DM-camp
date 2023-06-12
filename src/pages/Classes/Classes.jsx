@@ -11,12 +11,14 @@ const Classes = () => {
     }, [])
     console.log(classes);
     return (
-        <div >
-            <SectionTitle subtitle='Visit Our Class' title="Our Classes"></SectionTitle>
-            <div className="grid-cols-3 gap-4 md:grid">
-                {
-                    classes.map(item => <ClassesCart key={item._id} item={item}></ClassesCart>)
-                }
+        <div className="home-bg">
+            <div className="pb-4 bg-black bg-opacity-50 m-o">
+                <SectionTitle subtitle='Visit Our Class' title="Our Classes"></SectionTitle>
+                <div className="grid-cols-3 gap-4 mb-8 md:grid ms-4">
+                    {
+                        classes.map(item => <ClassesCart key={item._id} item={item}></ClassesCart>)
+                    }
+                </div>
             </div>
         </div>
 

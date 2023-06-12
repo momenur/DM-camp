@@ -11,7 +11,7 @@ const PrivateRoutes = ({ children }) => {
         return <p className="text-4xl">Loading ....</p>
     }
     if (user) {
-        return children
+        return children;
     }
     return <Navigate to="/login" state={{from: location}} replace></Navigate>
 };

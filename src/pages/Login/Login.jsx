@@ -44,8 +44,11 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                if(loggedUser){
+                    navigate(from, { replace: true });
+                }
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(error))   
     }
     return (
         <div className='loginBG'>

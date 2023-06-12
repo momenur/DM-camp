@@ -1,13 +1,37 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ClassesCart = ({item}) => {
     const {user} = useContext(AuthContext)
     const navigate = useNavigate();
-    const handleAddClass = () => {
-        if(!user){
-            return navigate('/login')
+    const location = useLocation();
+    const handleAddClass = (item) => {
+        if(user && user.email){
+            const selectedItem = {itemId: item._id, price: item.price, image: item.image, name: item.name, instructorName: item.instructorName, instructorEmail: item.instructorEmail, email: user.email}
+            fetch('http://localhost:5000/selected', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(selectedItem)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.insertedId){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Class Selected Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                      }) 
+                }
+            })
+        }
+        else{
+            navigate('/login', {state: {from: location}})
         }
     }
     return (
@@ -21,7 +45,7 @@ const ClassesCart = ({item}) => {
                     <p className="text-orange-400">Available seats: {item.seats}</p>
                     <p>Price: {item.price}</p>
                     <div className="justify-end card-actions">
-                        <button onClick={handleAddClass} className="btn btn-outline btn-secondary">Add Class</button>
+                        <button onClick={() => handleAddClass(item)} className="btn btn-outline btn-secondary">Select Class</button>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ const NavBar = () => {
     const userPhoto = user?.photoURL
     const navItem = <>
         <li><Link>Home</Link></li>
-        <li><Link>Instructors</Link></li>
+        <li><Link to='/instructors'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
         {/* <li><Link>Dashboard</Link></li> */}
         {/* <li><Link to='/signUp'>Sign Up</Link></li> */}
@@ -52,7 +52,7 @@ const NavBar = () => {
                     <div className="navbar-end">
                         {
                             user ? <>
-                                <button onClick={handleLogOut} className="btn btn-ghost">Logout</button>
+                                <button onClick={handleLogOut} className="btn btn-ghost"><span className="text-red-600">Logout</span></button>
                                 <img className="w-[55px] rounded-full" src={userPhoto} alt="" />
                             </> : <>
                                 <span className="mx-8"><Link to='/login'>Login</Link></span>
