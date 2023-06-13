@@ -5,12 +5,13 @@ import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
-// import Dashboard from "../pages/Dashboard/Dashboard";
-// import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
+
 import Classes from "../pages/Classes/classes";
 import Instructors from "../pages/Instructors/Instructors";
 import MyClasses from "../pages/Dashboard/MyClasses";
 import Dashboard from "../Layout/Dashboard";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
     {
@@ -37,19 +38,20 @@ export const router = createBrowserRouter([
                 path: 'instructors',
                 element: <Instructors></Instructors>
             },
-            // {
-            //     path: 'dashboard',
-            //     element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>
-            // }
+           
         ]
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
         children: [
             {
                 path: 'myClasses',
                 element: <MyClasses></MyClasses>
+            },
+            {
+                path: 'manageUsers',
+                element: <AllUsers></AllUsers>
             }
         ]
     }

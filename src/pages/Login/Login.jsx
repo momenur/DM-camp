@@ -4,7 +4,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
-import { FaEye } from 'react-icons/fa';
+import { FaEye, FaGoogle } from 'react-icons/fa';
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -12,8 +12,8 @@ const Login = () => {
     const [visible, setToggle] = useState(true)
     console.log(visible);
     let value = 'text';
-    if(visible){
-         value = 'password'
+    if (visible) {
+        value = 'password'
     }
 
     const from = location.state?.from?.pathname || '/';
@@ -42,13 +42,26 @@ const Login = () => {
     const handeleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser);
-                if(loggedUser){
-                    navigate(from, { replace: true });
-                }
+                const data = result.user;
+                console.log(data);
+                const userData = {name: data.displayName, email: data.email, role: 'student'}
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        
+                            navigate(from, { replace: true });
+                    })
+                // if (loggedUser) {
+                //     navigate(from, { replace: true });
+                // }
             })
-            .catch(error => console.log(error))   
+            .catch(error => console.log(error))
     }
     return (
         <div className='loginBG'>
@@ -84,7 +97,7 @@ const Login = () => {
                             </div>
                         </div>
                     </form>
-                    <button onClick={handeleGoogleSignIn} className='w-full -mt-3 btn btn-primary'> Sign In With Google</button>
+                    <button onClick={handeleGoogleSignIn} className='w-full -mt-3 btn btn-primary'> <span className='text-xl font-semibold text-red-600'><FaGoogle></FaGoogle></span> Sign In With Google</button>
 
                 </div>
             </div>

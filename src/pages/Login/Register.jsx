@@ -7,32 +7,47 @@ import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 const Register = () => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
-    const {createUser, profileUpdate} = useContext(AuthContext)
+    const { createUser, profileUpdate } = useContext(AuthContext)
     const navigate = useNavigate();
     const onSubmit = data => {
         console.log(data)
-        if(data.password !== data.confirmPassword){
+        if (data.password !== data.confirmPassword) {
             return;
         }
         createUser(data.email, data.password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            profileUpdate(data.name, data.photoURL)
-            .then(() => {
-                console.log('Profile is updated');
-                reset()
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'User Sign Up Successful',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-                  navigate('/');
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                profileUpdate(data.name, data.photoURL)
+                    .then(() => {
+
+                        const userData = {name: data.name, email: data.email, role: 'student'}
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(userData)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset()
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User Sign Up Successful',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                    navigate('/');
+                                }
+                            })
+
+
+                    })
+                    .catch(error => console.log(error))
             })
-            .catch(error => console.log(error))
-        })
     };
 
     return (
@@ -84,7 +99,7 @@ const Register = () => {
                                     <span className="label-text">Confirm Password</span>
                                 </label>
                                 <input type="password" {...register("confirmPassword")} name='confirmPassword' placeholder="Confirm Password" className="input input-bordered" />
-                                
+
                             </div>
                             <div className="mt-6 form-control">
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />

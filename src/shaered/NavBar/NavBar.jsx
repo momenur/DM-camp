@@ -58,7 +58,7 @@ const NavBar = () => {
                         {
                             user ? <>
                                 <button onClick={handleLogOut} className="btn btn-ghost"><span className="text-red-600">Logout</span></button>
-                                <img className="w-[55px] rounded-full" src={userPhoto} alt="" />
+                                <img className="w-[55px] h-[55px] rounded-full" src={userPhoto} alt="" />
                             </> : <>
                                 <span className="mx-8"><NavLink to='/login'>Login</NavLink></span>
                             </>

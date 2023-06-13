@@ -41,7 +41,7 @@ const MyClasses = () => {
                 <title>Summer Dance | Selected Class</title>
             </Helmet>
             <div>
-                <h2>Total Selected Classes: {selected.length}</h2>
+                <h2 className="my-6 text-2xl font-semibold text-center ">Total Selected Classes: {selected.length}</h2>
             </div>
             <div className="md:ms-4">
                 <div className="w-full overflow-x-auto">
