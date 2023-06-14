@@ -2,24 +2,18 @@ import { NavLink, Outlet } from "react-router-dom";
 import NavBar from "../shaered/NavBar/NavBar";
 import { FaMoneyCheck, FaHome, FaUser } from 'react-icons/fa';
 import useAdmin from "../hooks/useAdmin";
-import { useContext } from "react";
-import { AuthContext } from "../providers/AuthProvider/AuthProvider";
+import useInstructor from "../hooks/useInstrucror";
 
 const Dashboard = () => {
-    // const isAdmin = true;
-
-    const { user, loading } = useContext(AuthContext);
+    const [makeInstructor] = useInstructor();
+    // const { user, loading } = useContext(AuthContext);
     const [makeAdmin] = useAdmin();
-    console.log(makeAdmin);
-    if (loading) {
-        return <p>Please Wait for loading</p>
-    }
-    const userEmail = user?.email;
-    console.log(userEmail);
-    const adminInfo = makeAdmin.find(item => item.email === userEmail)
-    // console.log(adminInfo?.email);
-    console.log(adminInfo?.email === userEmail && adminInfo.role === 'admin');
 
+
+    const isAdmin = makeAdmin?.admin;
+    const isInstructor = makeInstructor?.instructor
+
+    console.log(isInstructor);
 
     return (
         <div>
@@ -47,20 +41,23 @@ const Dashboard = () => {
                             </>
                         } */}
                         {
-                            adminInfo?.email === userEmail && adminInfo.role === 'admin' ? <>
+                            isAdmin ? <>
                                 <li><NavLink to='/dashboard/myClasses'> <FaHome></FaHome>Manage Class</NavLink></li>
                                 <li><NavLink to='/dashboard/manageUsers'> <FaUser></FaUser> Manage Users</NavLink></li>
-                            </> : adminInfo?.email === userEmail && adminInfo.role === 'instructor' ? <>
-                                <li><NavLink to='/dashboard/myClasses'> <FaHome></FaHome>Add a Class</NavLink></li>
-                                <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> Instructor</NavLink></li></> : <> <li><NavLink to='/dashboard/myClasses'> <FaHome></FaHome>My Selected Class</NavLink></li>
-                                <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> Payment History</NavLink></li></>
+                            </> : isInstructor ? <>
+                                <li><NavLink to='/dashboard/addClass'> <FaHome></FaHome>Add a Class</NavLink></li>
+                                <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> Instructor</NavLink></li>
+                            </> : <>
+                                <li><NavLink to='/dashboard/myClasses'> <FaHome></FaHome>My Selected Class</NavLink></li>
+                                <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> Payment History</NavLink></li>
+                            </>
 
                         }
                     </ul>
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
