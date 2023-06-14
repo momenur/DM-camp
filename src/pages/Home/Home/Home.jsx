@@ -4,6 +4,7 @@ import './Home.css'
 import Topclass from "../Allclass/Topclass";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import { Helmet } from 'react-helmet-async';
+import Highlight from "../hilightCLass/Highlight";
 const Home = () => {
     const [classes, setClasses] = useState([])
     useEffect(() => {
@@ -20,6 +21,7 @@ const Home = () => {
                 <Banner></Banner>
                 <Topclass topclass={classes}></Topclass>
                 <PopularInstructors></PopularInstructors>
+                <Highlight></Highlight>
             </div>
         </div>
     );

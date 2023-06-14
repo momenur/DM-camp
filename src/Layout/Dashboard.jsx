@@ -55,8 +55,6 @@ const Dashboard = () => {
                                 <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> Instructor</NavLink></li></> : <> <li><NavLink to='/dashboard/myClasses'> <FaHome></FaHome>My Selected Class</NavLink></li>
                                 <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> Payment History</NavLink></li></>
 
-
-
                         }
                     </ul>
 
