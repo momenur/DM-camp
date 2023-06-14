@@ -11,8 +11,8 @@ const Highlight = () => {
             <div className="mt-24 mb-12 bg-fixed backgroundImg ">
                 <div className="py-2 text-white bg-black opacity-70">
                     <div className="flex items-center justify-center gap-12 px-24 py-24">
-                        <div>
-                            <img src={midImg} alt="
+                        <div >
+                            <img className='w-full' src={midImg} alt="
                             " />
                         </div>
                         <div>

@@ -9,15 +9,14 @@ const AddClass = () => {
     const handleAddClass = event => {
         event.preventDefault();
         const from = event.target;
-        const nameClass = from.name.value;
-        const photoCLass = from.photo.value;
+        const name = from.name.value;
+        const image = from.photo.value;
         const instructorName = user.displayName;
         const instructorEmail = user.email;
         const seats = parseFloat(from.seats.value);
         const price = parseFloat(from.price.value);
         const status = 'pending';
-        const AddClassInfo = {nameClass, photoCLass, instructorName, instructorEmail, seats, price, status}
-        console.log(AddClassInfo);
+        const AddClassInfo = {name, image, instructorName, instructorEmail, seats, price, status}
 
         fetch('http://localhost:5000/classes', {
             method: 'POST',

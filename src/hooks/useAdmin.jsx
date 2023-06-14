@@ -5,13 +5,14 @@ import { useQuery } from "@tanstack/react-query";
 const useAdmin = () => {
     const {user} = useContext(AuthContext)
     const {data: makeAdmin, isLoading: isAdminLoading = [] } = useQuery({
-        queryKey: ['users', user?.email],
+        queryKey: ['users2', user?.email],
         queryFn: async () => {
             const response = await fetch(`http://localhost:5000/users/admin/${user?.email}`)
             if (!response.ok) {
-              throw new Error('Network response was not ok')
+              // throw new Error('Network response was not ok')
             }
-            return response.json()
+            const data = await response.json()
+            return data ;
           },
       })
       return [makeAdmin, isAdminLoading]

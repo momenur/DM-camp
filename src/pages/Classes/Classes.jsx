@@ -9,14 +9,13 @@ const Classes = () => {
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
-    console.log(classes.slice(0, 6));
     return (
         <div className="home-bg">
             <div className="pb-4 bg-black bg-opacity-50 m-o">
                 <SectionTitle subtitle='Visit Our Class' title="Our Classes"></SectionTitle>
                 <div className="grid-cols-3 gap-4 mb-8 md:grid ms-4">
                     {
-                        classes.slice(0, 6).map(item => <ClassesCart key={item._id} item={item}></ClassesCart>)
+                        classes.map(item => <ClassesCart key={item._id} item={item}></ClassesCart>)
                     }
                 </div>
             </div>

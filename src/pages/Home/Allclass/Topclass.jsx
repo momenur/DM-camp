@@ -25,7 +25,7 @@ const Topclass = ({ topclass }) => {
                     className="mySwiper"
                 >
                     {
-                        topclass.map(item => <>
+                        topclass.slice(0, 6).map(item => <>
                             <SwiperSlide key={item._id}><DanceCard key={item._id} item={item}></DanceCard></SwiperSlide>
                         </>)
                     }

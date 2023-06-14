@@ -6,13 +6,17 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
 
-import Classes from "../pages/Classes/classes";
+
 import Instructors from "../pages/Instructors/Instructors";
 import MyClasses from "../pages/Dashboard/MyClasses";
 import Dashboard from "../Layout/Dashboard";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
+import Classes from "../pages/Classes/Classes";
+import InstructorRoute from "./InstructorRoute/InstructorRoute";
+import AdminRoute from "./AdminRoute/AdminRoute";
+import MyClass from "../pages/Dashboard/Myclass/MyClass";
 
 export const router = createBrowserRouter([
     {
@@ -52,11 +56,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'manageUsers',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path: 'addClass',
-                element: <AddClass></AddClass>
+                element:  <InstructorRoute><AddClass></AddClass></InstructorRoute>
+            },
+            {
+                path: 'myClass',
+                element:  <InstructorRoute><MyClass></MyClass></InstructorRoute>
             }
         ]
     }

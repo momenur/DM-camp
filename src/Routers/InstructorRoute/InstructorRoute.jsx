@@ -1,14 +1,10 @@
-import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
-import { Navigate, useLocation } from "react-router-dom";
 import { BallTriangle } from "react-loader-spinner";
+import useInstructor from "../../hooks/useInstrucror";
 
+const InstructorRoute = ({ children }) => {
+    const [makeInstructor, isInstructorLoading] = useInstructor();
 
-const PrivateRoutes = ({ children }) => {
-
-    const { user, loading } = useContext(AuthContext)
-    const location = useLocation();
-    if (loading) {
+    if (isInstructorLoading) {
         return <div className="flex justify-center items-center mt-36">
             <BallTriangle
                 height={100}
@@ -22,10 +18,12 @@ const PrivateRoutes = ({ children }) => {
             />
         </div>
     }
-    if (user) {
+
+    const isInstructor = makeInstructor?.instructor
+    if (isInstructor) {
         return children;
     }
-    return <Navigate to="/login" state={{ from: location }} replace></Navigate>
+
 };
 
-export default PrivateRoutes;
+export default InstructorRoute;

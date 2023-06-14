@@ -4,16 +4,18 @@ import { FaMoneyCheck, FaHome, FaUser } from 'react-icons/fa';
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstrucror";
 
+
 const Dashboard = () => {
     const [makeInstructor] = useInstructor();
-    // const { user, loading } = useContext(AuthContext);
     const [makeAdmin] = useAdmin();
-
 
     const isAdmin = makeAdmin?.admin;
     const isInstructor = makeInstructor?.instructor
 
-    console.log(isInstructor);
+
+    
+
+    // console.log(isInstructor);
 
     return (
         <div>
@@ -42,13 +44,14 @@ const Dashboard = () => {
                         } */}
                         {
                             isAdmin ? <>
-                                <li><NavLink to='/dashboard/myClasses'> <FaHome></FaHome>Manage Class</NavLink></li>
-                                <li><NavLink to='/dashboard/manageUsers'> <FaUser></FaUser> Manage Users</NavLink></li>
+                                <li><NavLink to='/dashboard/myClasses'> <FaHome></FaHome>Manage Classes</NavLink></li>
+                                <li><NavLink to='/dashboard/manageUsers'> <FaUser></FaUser>Manage Users</NavLink></li>
                             </> : isInstructor ? <>
                                 <li><NavLink to='/dashboard/addClass'> <FaHome></FaHome>Add a Class</NavLink></li>
-                                <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> Instructor</NavLink></li>
+                                <li><NavLink to='/dashboard/myClass'> <FaMoneyCheck></FaMoneyCheck> My Classes</NavLink></li>
                             </> : <>
                                 <li><NavLink to='/dashboard/myClasses'> <FaHome></FaHome>My Selected Class</NavLink></li>
+                                <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> My Enrolled Classes</NavLink></li>
                                 <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> Payment History</NavLink></li>
                             </>
 
