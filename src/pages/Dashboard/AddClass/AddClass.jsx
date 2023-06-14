@@ -41,48 +41,48 @@ const AddClass = () => {
 
     return (
         <div>
-            <h1 className="text-3xl font-semibold">ADD A CLASS</h1>
+            <h1 className="mt-8 text-3xl font-semibold text-center">ADD A CLASS</h1>
             <div className='w-full'>
-                <form onSubmit={handleAddClass} className="w-full mb-12 shadow-2xl bg-base-100">
+                <form onSubmit={handleAddClass} className="w-full mb-12 text-black bg-transparent shadow-2xl">
                     <div className="md:w-[800px] card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Class Name</span>
+                                <span className="text-white label-text">Class Name</span>
                             </label>
                             <input type="text"  name='name' placeholder="Enter Your Class Name" className="input input-bordered" />
                             
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Class Photo URL</span>
+                                <span className="text-white label-text">Class Photo URL</span>
                             </label>
                             <input type="text"  name='photo' placeholder="Photo URL" className="input input-bordered" />
                            
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Instructor Name</span>
+                                <span className="text-white label-text">Instructor Name</span>
                             </label>
                             <input type="text"  name='photoURL' placeholder="Photo URL" className="input input-bordered" value={user?.displayName} readOnly/>
                            
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Instructor Email</span>
+                                <span className="text-white label-text">Instructor Email</span>
                             </label>
                             <input type="text"  name='photoURL' placeholder="Photo URL" className="input input-bordered" value={user?.email} readOnly/>
                            
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Available seats</span>
+                                <span className="text-white label-text">Available seats</span>
                             </label>
                             <input type="number"  name='seats' placeholder="Please Enter Available seats" className="input input-bordered" />
                            
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Price</span>
+                                <span className="text-white label-text">Price</span>
                             </label>
                             <input type="number"  name='price' placeholder="Enter the Price" className="input input-bordered"/>
                            

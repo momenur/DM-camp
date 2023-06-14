@@ -47,7 +47,7 @@ const MyClasses = () => {
                 <div className="w-full overflow-x-auto">
                     <table className="table w-full">
                         <thead>
-                            <tr>
+                            <tr className="text-white">
                                 <th>SL</th>
                                 <th>Class Name</th>
                                 <th>Instructor</th>
@@ -64,7 +64,7 @@ const MyClasses = () => {
                                     <td>{item.price}</td>
                                     <td>
                                         <Link><button onClick={() => handleDelete(item)} className="rounded-full btn btn-error me-8"><FaTrash></FaTrash></button></Link>
-                                        <button className="rounded-full btn btn-info">Pay</button>
+                                        <button className="btn btn-info">Pay</button>
                                     </td>
                                 </tr>)
                             }

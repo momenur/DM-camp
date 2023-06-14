@@ -48,14 +48,14 @@ const AllUsers = () => {
             })
     }
     return (
-        <div className="w-full">
+        <div className="w-full pt-10 pb-20 bg-orange-600 bg-opacity-40">
             <h1 className="my-4 text-3xl text-center">Total Users: {users.length}</h1>
             <div>
                 <div className="overflow-x-auto ms-4">
-                    <table className="table table-zebra">
+                    <table className="table">
                         {/* head */}
                         <thead>
-                            <tr>
+                            <tr className="text-white ">
                                 <th>SL</th>
                                 <th>Name</th>
                                 <th>Role</th>
@@ -74,15 +74,15 @@ const AllUsers = () => {
                                     <td>
                                         {
                                             user.role === 'admin' ? <>
-                                                <button disabled={true} onClick={() => handleAdmin(user._id)} className="btn btn-outline btn-xs me-4">Make Admin</button>
+                                                <button disabled={true} onClick={() => handleAdmin(user._id)} className="btn btn-warning btn-xs me-4"><span className="text-white">Make Admin</span></button>
                                             </> : <>
-                                                <button onClick={() => handleAdmin(user._id)} className="btn btn-outline btn-xs me-4">Make Admin</button></>
+                                                <button onClick={() => handleAdmin(user._id)} className="btn btn-warning btn-xs me-4"><span className="text-white">Make Admin</span></button></>
                                         }
                                         {
                                             user.role === 'instructor' ? <>
-                                                <button disabled={true} onClick={() => handleInstructor(user._id)} className="btn btn-outline btn-xs">Make Instructor</button>
+                                                <button disabled={true} onClick={() => handleInstructor(user._id)} className="btn btn-warning btn-xs"><span className="text-white">Make Instructor</span></button>
                                             </> : <>
-                                                <button onClick={() => handleInstructor(user._id)} className="btn btn-outline btn-xs">Make Instructor</button>
+                                                <button onClick={() => handleInstructor(user._id)} className="btn btn-warning btn-xs"><span className="text-white">Make Instructor</span></button>
                                             </>
                                         }
 

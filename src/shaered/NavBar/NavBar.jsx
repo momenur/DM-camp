@@ -1,13 +1,11 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
-import useSelectedItem from "../../hooks/useSelectedItem";
 
 const NavBar = () => {
 
     const { logOut, user, loading } = useContext(AuthContext)
 
-    const [selected] = useSelectedItem()
     const userPhoto = user?.photoURL
     if(loading){
         return
@@ -20,7 +18,7 @@ const NavBar = () => {
         {/* <li><NavLink to='/signUp'>Sign Up</NavLink></li> */}
         {
             user ? <>
-                <li><NavLink to='/dashboard'>Dashboard{selected?.length || 0}</NavLink></li>
+                <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
             </> : <>
                 <li><NavLink to='/signUp'>Sign Up</NavLink></li>
             </>

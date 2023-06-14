@@ -20,7 +20,7 @@ const MyClass = () => {
                     <table className="table">
                         {/* head */}
                         <thead>
-                            <tr>
+                            <tr className="text-white">
                                 <th>SL</th>
                                 <th>Class Name</th>
                                 <th>Status</th>
@@ -34,7 +34,7 @@ const MyClass = () => {
                             {
                                instructorAddedClass.map((item, index) => <tr key={item._id}>
                                 <th>{index + 1}</th>
-                                <td>{item.nameClass}</td>
+                                <td>{item.name}</td>
                                 <td>{item.status}</td>
                                 <td>{item.price}</td>
                                 <td><button className="btn btn-xs">Update</button></td>
