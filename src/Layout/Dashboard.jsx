@@ -7,6 +7,7 @@ import './Dashboard.css'
 
 
 const Dashboard = () => {
+    
     const [makeInstructor] = useInstructor();
     const [makeAdmin] = useAdmin();
 
@@ -14,7 +15,7 @@ const Dashboard = () => {
     const isInstructor = makeInstructor?.instructor
 
 
-    
+
 
     // console.log(isInstructor);
 
@@ -32,17 +33,11 @@ const Dashboard = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="h-full p-4 text-white bg-orange-200 pt-28 menu w-80">
 
-                        {/* {
-                            adminInfo?.email === userEmail && adminInfo.role === 'admin' ? <>
-                                <li><NavLink to='/dashboard/myClasses'> <FaHome></FaHome>Manage Class</NavLink></li>
-                                <li><NavLink to='/dashboard/manageUsers'> <FaUser></FaUser> Manage Users</NavLink></li>
-                            </> : <>
-                                <li><NavLink to='/dashboard/myClasses'> <FaHome></FaHome>My Selected Class</NavLink></li>
-                                <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> Payment History</NavLink></li>
-                            </>
-                        } */}
+                    <ul className="h-full p-4 text-white bg-orange-200 pt-28 menu w-80">
+                        
+
+                       
                         {
                             isAdmin ? <>
                                 <li><NavLink to='/dashboard/TODO'> <FaHome></FaHome>Manage Classes</NavLink></li>
@@ -53,6 +48,7 @@ const Dashboard = () => {
                             </> : <>
                                 <li><NavLink to='/dashboard/myClasses'> <FaHome></FaHome>My Selected Class</NavLink></li>
                                 <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> My Enrolled Classes</NavLink></li>
+                                
                                 <li><NavLink to='/dashboard/history'> <FaMoneyCheck></FaMoneyCheck> Payment History</NavLink></li>
                             </>
 

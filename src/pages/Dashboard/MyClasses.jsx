@@ -64,7 +64,9 @@ const MyClasses = () => {
                                     <td>{item.price}</td>
                                     <td>
                                         <Link><button onClick={() => handleDelete(item)} className="rounded-full btn btn-error me-8"><FaTrash></FaTrash></button></Link>
-                                        <button className="btn btn-info">Pay</button>
+                                        <Link to='/dashboard/payment'>
+                                            <button className="btn btn-info">Pay</button>
+                                        </Link>
                                     </td>
                                 </tr>)
                             }
