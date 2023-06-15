@@ -1,0 +1,3 @@
+-- My Website Name is Dance Master Camp(DM Camp)
+-- my website has home page , all class and all instructor page , and a dash board , authentication system , Admin panel , instructor panel and also have student panel
+-- use packages/ technology name: express, react router , firebase for authentication , mongoDB for store data to database , react query , awesome react components , daisyUI etc.
