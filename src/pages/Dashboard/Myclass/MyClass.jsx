@@ -24,6 +24,7 @@ const MyClass = () => {
                                 <th>SL</th>
                                 <th>Class Name</th>
                                 <th>Status</th>
+                                <th>Feedback</th>
                                 <th>Price</th>
                                 <th>Action</th>
                             </tr>
@@ -36,6 +37,7 @@ const MyClass = () => {
                                 <th>{index + 1}</th>
                                 <td>{item.name}</td>
                                 <td>{item.status}</td>
+                                <td>{item.status ? <p>{item.feedback}</p> : <></>}</td>
                                 <td>{item.price}</td>
                                 <td><button className="btn btn-xs">Update</button></td>
                             </tr>) 

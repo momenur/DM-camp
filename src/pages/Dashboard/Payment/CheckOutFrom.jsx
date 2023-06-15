@@ -1,10 +1,24 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const CheckOutFrom = () => {
+const CheckOutFrom = ({ price }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [paymentError, setPaymentError] = useState('');
+    const [clientSecret, setClientSecret] = useState("");
+    console.log('cicret',clientSecret);
+
+
+    useEffect(() => {
+        fetch('http://localhost:5000/create-payment-intent', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(price)
+        })
+            .then((res) => res.json())
+            .then((data) => setClientSecret(data.clientSecret));
+
+    }, [])
     const handleSubmit = async (event) => {
         event.preventDefault();
 
