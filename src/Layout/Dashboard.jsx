@@ -4,6 +4,7 @@ import { FaMoneyCheck, FaHome, FaUser } from 'react-icons/fa';
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstrucror";
 import './Dashboard.css'
+import { Helmet } from "react-helmet-async";
 
 
 const Dashboard = () => {
@@ -21,6 +22,9 @@ const Dashboard = () => {
 
     return (
         <div className="bg-drawer-custom">
+            <Helmet>
+                <title>Summer Dance | Dashboard</title>
+            </Helmet>
 
             <NavBar></NavBar>
             <div className="text-white bg-black bg-opacity-60 drawer lg:drawer-open">

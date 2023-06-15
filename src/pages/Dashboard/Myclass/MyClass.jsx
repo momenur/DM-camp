@@ -14,7 +14,7 @@ const MyClass = () => {
     
     return (
         <div className="w-full">
-            <h1>This is My Class</h1>
+            <h1 className="py-4 text-3xl text-center underline uppercase">My Added Class</h1>
             <div>
                 <div className="overflow-x-auto ms-4">
                     <table className="table">

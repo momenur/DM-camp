@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
 import ClassesCart from "../../components/ClassesCart";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
     const [classes, setClasses] = useState([])
@@ -11,6 +12,9 @@ const Classes = () => {
     }, [])
     return (
         <div className="home-bg">
+            <Helmet>
+                <title>Summer Dance | Classes</title>
+            </Helmet>
             <div className="pb-4 bg-black bg-opacity-50 m-o">
                 <SectionTitle subtitle='Visit Our Class' title="Our Classes"></SectionTitle>
                 <div className="grid-cols-3 gap-4 mb-8 md:grid ms-4">

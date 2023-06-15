@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
 import './Instructors.css'
+import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
     const [instructors, setInstructors] = useState([])
@@ -9,9 +10,11 @@ const Instructors = () => {
             .then(res => res.json())
             .then(data => setInstructors(data))
     }, [])
-    console.log(instructors);
     return (
         <div className="bg-instructors ">
+            <Helmet>
+                <title>Summer Dance | Instructor</title>
+            </Helmet>
             <div className="pb-4 text-white bg-black bg-opacity-50">
                 <SectionTitle subtitle="Check Our Instructors List" title="Our Instructors"></SectionTitle>
                 <div className="overflow-x-auto">

@@ -14,7 +14,6 @@ const ManageClass = () => {
         const res = await fetch('http://localhost:5000/classes')
         return res.json()
     })
-    console.log(classes);
 
     const handleApprove = id => {
         fetch(`http://localhost:5000/classes/approveClass/${id}`, {
@@ -75,7 +74,7 @@ const ManageClass = () => {
     }
     return (
         <div>
-            <h1>This is Manage User</h1>
+            <h1 className="my-8 text-3xl text-center underline uppercase">Manage Classes</h1>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table">

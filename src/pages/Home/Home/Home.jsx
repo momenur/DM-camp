@@ -30,6 +30,3 @@ const Home = () => {
 export default Home;
 
 
-// {isAdmin && <AdminDashboard/>}
-// {isInstructor && <InstructorDashboard/>}
-// {isStudent && <StudentDashboard/>}
