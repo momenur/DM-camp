@@ -6,10 +6,13 @@ import { Helmet } from "react-helmet-async";
 const Classes = () => {
     const [classes, setClasses] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/classes')
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
+    console.log(classes);
+
+    const approveClasses = classes.filter(item => item.status === 'approve')
     return (
         <div className="home-bg">
             <Helmet>
@@ -19,7 +22,7 @@ const Classes = () => {
                 <SectionTitle subtitle='Visit Our Class' title="Our Classes"></SectionTitle>
                 <div className="grid-cols-3 gap-4 mb-8 md:grid ms-4">
                     {
-                        classes.map(item => <ClassesCart key={item._id} item={item}></ClassesCart>)
+                        approveClasses.map(item => <ClassesCart key={item._id} item={item}></ClassesCart>)
                     }
                 </div>
             </div>

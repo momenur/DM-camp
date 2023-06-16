@@ -21,7 +21,7 @@ const ClassesCart = ({item}) => {
     const handleAddClass = (item) => {
         if(user && user.email){
             const selectedItem = {itemId: item._id, price: item.price, image: item.image, name: item.name, instructorName: item.instructorName, instructorEmail: item.instructorEmail, email: user.email}
-            fetch('http://localhost:5000/selected', {
+            fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/selected', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

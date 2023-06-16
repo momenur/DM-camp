@@ -22,7 +22,7 @@ const Register = () => {
                     .then(() => {
 
                         const userData = {name: data.name, email: data.email, role: 'student'}
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

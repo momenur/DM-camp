@@ -18,7 +18,7 @@ const AddClass = () => {
         const status = 'pending';
         const AddClassInfo = {name, image, instructorName, instructorEmail, seats, price, status}
 
-        fetch('http://localhost:5000/classes', {
+        fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/classes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

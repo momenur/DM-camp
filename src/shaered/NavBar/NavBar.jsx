@@ -1,8 +1,10 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const NavBar = () => {
+
+    const navigate = useNavigate()
 
     const { logOut, user, loading } = useContext(AuthContext)
 
@@ -29,6 +31,7 @@ const NavBar = () => {
         logOut()
         .then(() => { })
         .catch(error => console.log(error))
+        navigate('/login')
     }
     return (
         <div className="fixed z-10 w-full max-w-screen-xl">

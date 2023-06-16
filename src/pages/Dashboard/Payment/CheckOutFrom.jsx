@@ -10,7 +10,7 @@ const CheckOutFrom = ({ price }) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/create-payment-intent', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(price)

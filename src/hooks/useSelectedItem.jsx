@@ -7,7 +7,7 @@ const useSelectedItem = () => {
     const { isLoading, refetch, data: selected = [] } = useQuery({
         queryKey: ['selected', user?.email],
         queryFn: async () => {
-            const response = await fetch(`http://localhost:5000/selected?email=${user?.email}`)
+            const response = await fetch(`https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/selected?email=${user?.email}`)
             if (!response.ok) {
               throw new Error('Network response was not ok')
             }

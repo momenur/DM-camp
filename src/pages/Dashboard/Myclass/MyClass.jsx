@@ -9,13 +9,13 @@ const MyClass = () => {
     const [updateClass, setUpdateClass] = useState('')
     // console.log(updateClass);
     // useEffect(() => {
-    //     fetch('http://localhost:5000/classes')
+    //     fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/classes')
     //         .then(res => res.json())
     //         .then(data => setMyClass(data))
     // }, [])
 
     const { data: myClass = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/classes')
+        const res = await fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/classes')
         return res.json()
     })
 
@@ -32,7 +32,7 @@ const MyClass = () => {
         const updateClassInfo = { name, image, instructorName, instructorEmail, seats, price }
         console.log("Update Info", updateClassInfo);
 
-        fetch(`http://localhost:5000/classes/${updateClass._id}`, {
+        fetch(`https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/classes/${updateClass._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -41,7 +41,7 @@ const MyClass = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 from.reset()
                 if (data.modifiedCount) {
                     refetch();

@@ -45,7 +45,7 @@ const Login = () => {
                 const data = result.user;
                 console.log(data);
                 const userData = {name: data.displayName, email: data.email, role: 'student'}
-                fetch('http://localhost:5000/users', {
+                fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

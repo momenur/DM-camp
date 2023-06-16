@@ -4,19 +4,19 @@ import Swal from "sweetalert2";
 const ManageClass = () => {
     // const [classes, setClasses] = useState([])
     // useEffect(() => {
-    //     fetch('http://localhost:5000/classes')
+    //     fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/classes')
     //         .then(res => res.json())
     //         .then(data => setClasses(data))
     // }, [])
 
 
     const { data: classes = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/classes')
+        const res = await fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/classes')
         return res.json()
     })
 
     const handleApprove = id => {
-        fetch(`http://localhost:5000/classes/approveClass/${id}`, {
+        fetch(`https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/classes/approveClass/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -35,7 +35,7 @@ const ManageClass = () => {
             })
     }
     const handleDeny = id => {
-        fetch(`http://localhost:5000/classes/denyClass/${id}`, {
+        fetch(`https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/classes/denyClass/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -54,7 +54,7 @@ const ManageClass = () => {
             })
     }
     const handleFeedback = id => {
-        fetch(`http://localhost:5000/classes/feedbackClass/${id}`, {
+        fetch(`https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/classes/feedbackClass/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

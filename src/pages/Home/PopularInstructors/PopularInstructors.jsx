@@ -5,7 +5,7 @@ import InstructorCard from "../../../components/InstructorCard";
 const PopularInstructors = () => {
     const [instructors, setInstructors] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/instructors')
+        fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/instructors')
         .then(res => res.json())
         .then(data => setInstructors(data))
     },[])

@@ -8,10 +8,11 @@ import Highlight from "../hilightCLass/Highlight";
 const Home = () => {
     const [classes, setClasses] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/classes')
         .then(res => res.json())
         .then(data => setClasses(data))
     },[])
+    const approveClasses = classes.filter(item => item.status === 'approve')
     return (
         <div className="home-bg">
             <Helmet>
@@ -19,7 +20,7 @@ const Home = () => {
             </Helmet>
             <div className="pb-4 bg-black bg-opacity-50 m-o">
                 <Banner></Banner>
-                <Topclass topclass={classes}></Topclass>
+                <Topclass topclass={approveClasses}></Topclass>
                 <PopularInstructors></PopularInstructors>
                 <Highlight></Highlight>
             </div>
