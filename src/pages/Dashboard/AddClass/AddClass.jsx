@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
-
 const AddClass = () => {
     const {user} = useContext(AuthContext)
     console.log(user);
