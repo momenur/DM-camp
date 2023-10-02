@@ -49,8 +49,8 @@ const ClassesCart = ({item}) => {
     }
     return (
         <div>
-            <div className="shadow-xl card w-96 bg-base-100">
-                <figure><img className="w-[350px] h-[300px] mt-4 rounded rounded-xl" src={item.image} alt="Shoes" /></figure>
+            <div className="bg-yellow-200 hover:bg-yellow-400 hover:shadow-yellow-500 duration-700 shadow-[#ff0800] shadow-xl card w-96 rounded-none">
+                <figure><img className="w-[300px] h-[300px] mt-4 rounded-full -mb-16 border-[#ff0800] border-4" src={item.image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Class Name: {item.name}</h2>
                     <h2 className="card-title">Instructor Name: {item.instructorName}</h2>
@@ -58,7 +58,7 @@ const ClassesCart = ({item}) => {
                     <p className="text-orange-400">Available seats: {item.seats}</p>
                     <p>Price: {item.price}</p>
                     <div className="justify-end card-actions">
-                        <button disabled={isAdmin || isInstructor} onClick={() => handleAddClass(item)} className="btn btn-outline btn-secondary">Select Class</button>
+                        <button disabled={isAdmin || isInstructor} onClick={() => handleAddClass(item)} className="btn bg-transparent text-[#ff0800] border-[#ff0800] btn-secondary hover:bg-[#ff0800] hover:text-white duration-700 rounded-none">Select Class</button>
                     </div>
                 </div>
             </div>

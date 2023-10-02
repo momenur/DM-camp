@@ -2,3 +2,8 @@
     background-image: url(../../../assets/home/highlight.jpg);
     background-size: cover;
 }
+.custom-text-color{
+  background: -webkit-linear-gradient(#fff,#df5f18, #0ba871, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

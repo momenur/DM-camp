@@ -5,6 +5,7 @@ import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import { FaEye, FaGoogle } from 'react-icons/fa';
+import SectionTitle from '../../components/SectionTitle';
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -44,7 +45,7 @@ const Login = () => {
             .then(result => {
                 const data = result.user;
                 console.log(data);
-                const userData = {name: data.displayName, email: data.email, role: 'student'}
+                const userData = { name: data.displayName, email: data.email, role: 'student' }
                 fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/users', {
                     method: 'POST',
                     headers: {
@@ -54,8 +55,8 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
-                        
-                            navigate(from, { replace: true });
+
+                        navigate(from, { replace: true });
                     })
                 // if (loggedUser) {
                 //     navigate(from, { replace: true });
@@ -64,14 +65,18 @@ const Login = () => {
             .catch(error => console.log(error))
     }
     return (
-        <div className='loginBG'>
+        <div className=''>
             <Helmet>
                 <title>Summer Dance | Login</title>
             </Helmet>
-            <div className="min-h-screen bg-black hero bg-opacity-70">
+            <SectionTitle title="Login Now" subtitle="Please Login Now" />
+            <div className="mb-20">
                 <div className="flex-col hero-content ">
-                    <h1 className="mb-6 text-5xl font-bold text-neutral-content">Login Now !</h1>
-                    <form onSubmit={handleLogin} className="flex-shrink-0 w-full max-w-sm shadow-2xl card bg-base-100">
+                    <form onSubmit={handleLogin} className="flex-shrink-0 md:w-[500px] shadow-2xl shadow-[#ff0800] card bg-yellow-50">
+                        <div className='pt-8 ps-8 text-[#ff0800]'>
+                            <h1>Admin Email: admin@gmail.com</h1>
+                            <h4>Admin Password: Admin123#</h4>
+                        </div>
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -83,21 +88,18 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <div className='flex items-center justify-center'>
-                                    <input type={value} name='password' placeholder="password" className="input input-bordered" />
+                                <div className='flex items-center justify-center gap-2'>
+                                    <input type={value} name='password' placeholder="password" className="w-full input input-bordered" />
                                     <span onClick={() => setToggle(!visible)}><FaEye /></span>
                                 </div>
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
                             </div>
                             <div className="mt-6 form-control">
-                                <input className="btn btn-primary" type="submit" value="Login" />
+                                <input className="btn bg-transparent text-[#ff0800] border-[#ff0800] btn-secondary hover:bg-[#ff0800] hover:text-white duration-700 rounded-none" type="submit" value="Login" />
                                 <p className='mt-4'><small>You Have no Account</small> <Link to='/signUp'><span className='font-semibold underline text-sky-600'>Sign Up</span></Link></p>
                             </div>
                         </div>
                     </form>
-                    <button onClick={handeleGoogleSignIn} className='w-full -mt-3 btn btn-primary'> <span className='text-xl font-semibold text-red-600'><FaGoogle></FaGoogle></span> Sign In With Google</button>
+                    <button onClick={handeleGoogleSignIn} className='w-[450px] mt-12 btn bg-transparent text-[#ff0800] border-[#ff0800] btn-secondary hover:bg-[#ff0800] hover:text-white duration-700 rounded-none shadow-yellow-400 shadow-xl'> <span className='text-xl font-semibold text-red-600'><FaGoogle></FaGoogle></span> Sign In With Google</button>
 
                 </div>
             </div>

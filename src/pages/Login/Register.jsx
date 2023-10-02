@@ -1,10 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
-import './Login.css'
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet-async';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import SectionTitle from '../../components/SectionTitle';
 const Register = () => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const { createUser, profileUpdate } = useContext(AuthContext)
@@ -21,7 +21,7 @@ const Register = () => {
                 profileUpdate(data.name, data.photoURL)
                     .then(() => {
 
-                        const userData = {name: data.name, email: data.email, role: 'student'}
+                        const userData = { name: data.name, email: data.email, role: 'student' }
                         fetch('https://summer-dance-camp-server-momenurislam6-gmailcom.vercel.app/users', {
                             method: 'POST',
                             headers: {
@@ -51,16 +51,18 @@ const Register = () => {
     };
 
     return (
-        <div className='loginBG'>
+        <div className=''>
             <Helmet>
                 <title>Summer Dance | Sign Up</title>
             </Helmet>
-            <div className="min-h-screen bg-black hero bg-opacity-70">
-                <div className="flex-col hero-content ">
-                    <h1 className="mb-6 text-5xl font-bold text-neutral-content">Sign Up Now !</h1>
-                    <form onSubmit={handleSubmit(onSubmit)} className="flex-shrink-0 w-full max-w-sm shadow-2xl card bg-base-100">
-                        <div className="card-body">
-                            <div className="form-control">
+            <SectionTitle title="Sign Up now !" subtitle="welcome to DM Master" />
+            <div className="mb-20 ">
+                <div className="flex-col hero-content">
+
+                    <form onSubmit={handleSubmit(onSubmit)} className="flex-shrink-0  shadow-[#ff0800] shadow-2xl md:w-1/2 bg-yellow-50">
+                        
+                        <div className="w-full card-body">
+                            <div className="w-full form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
@@ -102,8 +104,8 @@ const Register = () => {
 
                             </div>
                             <div className="mt-6 form-control">
-                                <input className="btn btn-primary" type="submit" value="Sign Up" />
-                                <p className='mt-4'><small>All Ready Have an Account</small> <Link to='/login'><span className='font-semibold underline text-sky-600'>Login</span></Link></p>
+                                <input className="btn bg-transparent text-[#ff0800] border-[#ff0800] btn-secondary hover:bg-[#ff0800] hover:text-white duration-700 rounded-none" type="submit" value="Sign Up" />
+                                <p className='mt-4'><small>All Ready Have an Account</small> <Link to='/login'><span className='font-semibold underline text-[#ff0800]'>Login</span></Link></p>
                             </div>
                         </div>
                     </form>

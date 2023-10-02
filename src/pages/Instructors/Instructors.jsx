@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
-import './Instructors.css'
 import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
@@ -15,13 +14,13 @@ const Instructors = () => {
             <Helmet>
                 <title>Summer Dance | Instructor</title>
             </Helmet>
-            <div className="pb-4 text-white bg-black bg-opacity-50">
+            <div className="pb-4 text-white bg-opacity-50 bg-yellow-50">
                 <SectionTitle subtitle="Check Our Instructors List" title="Our Instructors"></SectionTitle>
                 <div className="overflow-x-auto">
-                    <table className="table">
+                    <table className="table text-lg text-black">
                         {/* head */}
                         <thead>
-                            <tr className="text-white">
+                            <tr className="text-black">
                                 <th>SL</th>
                                 <th>Photo</th>
                                 <th>Name</th>
@@ -34,12 +33,12 @@ const Instructors = () => {
 
                             {
                                 instructors.map((item, index)=> <tr key={item._id}>
-                                    <th> {index + 1} </th>
+                                    <th className="text-[#ff0800]"> {index + 1} </th>
                                     <td>
                                         <div className="flex items-center space-x-3">
                                             <div className="avatar">
-                                                <div className="w-12 h-12 mask mask-squircle">
-                                                    <img src={item.image} />
+                                                <div className="w-16 h-16 rounded-full">
+                                                    <img className="border-[#ff0800] border-2 rounded-full" src={item.image} />
                                                 </div>
                                             </div>
                                         </div>
