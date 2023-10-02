@@ -14,11 +14,11 @@ const Home = () => {
     },[])
     const approveClasses = classes.filter(item => item.status === 'approve')
     return (
-        <div className="home-bg">
+        <div className="">
             <Helmet>
                 <title>Summer Dance | Home</title>
             </Helmet>
-            <div className="pb-4 bg-black bg-opacity-50 m-o">
+            <div className="pb-4">
                 <Banner></Banner>
                 <Topclass topclass={approveClasses}></Topclass>
                 <PopularInstructors></PopularInstructors>

@@ -4,7 +4,7 @@ import Footer from "../shaered/Footer/Footer";
 
 const Main = () => {
     return (
-        <div>
+        <div className="mx-auto md:max-w-screen-xl">
             <NavBar></NavBar>
             <Outlet></Outlet>
             <Footer></Footer>

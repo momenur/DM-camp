@@ -34,8 +34,8 @@ const NavBar = () => {
         navigate('/login')
     }
     return (
-        <div className="fixed z-10 w-full max-w-screen-xl">
-            <div className="bg-black bg-opacity-40 ">
+        <div className="fixed z-20 md:w-[1280px] w-full">
+            <div className="bg-slate-900">
                 <div className="navbar text-neutral-content activeRoute">
                     <div className="navbar-start">
                         <div className="dropdown">

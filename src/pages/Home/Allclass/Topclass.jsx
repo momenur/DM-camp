@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+// import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import DanceCard from "../../../components/DanceCard";
@@ -21,13 +21,13 @@ const Topclass = ({ topclass }) => {
                     pagination={{
                         clickable: true,
                     }}
-                    modules={[Pagination]}
+                    // modules={[Pagination]}
                     className="mySwiper"
                 >
                     {
-                        topclass.slice(0, 6).map(item => <>
-                            <SwiperSlide key={item._id}><DanceCard key={item._id} item={item}></DanceCard></SwiperSlide>
-                        </>)
+                        topclass.slice(0, 6).map(item => <div key={item._id}>
+                            <SwiperSlide><DanceCard item={item}></DanceCard></SwiperSlide>
+                        </div>)
                     }
                 </Swiper>
             </div>

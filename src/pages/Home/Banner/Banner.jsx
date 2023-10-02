@@ -6,8 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import b1 from '../../../assets/banner/b1.jpg'
-import b2 from '../../../assets/banner/b5.jpg'
-import b3 from '../../../assets/banner/b2.jpg'
+import b2 from '../../../assets/banner/b2.jpg'
+import b3 from '../../../assets/banner/b3.jpg'
 const Banner = () => {
     const settings = {
         dots: true,
@@ -17,8 +17,7 @@ const Banner = () => {
         slidesToScroll: 1
     };
     return (
-        <div className="px-8 pt-12">
-            <h2> Single Item</h2>
+        <div className="">
             <Slider {...settings}>
                 <div>
                     <img src={b1} alt="" />
