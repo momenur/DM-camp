@@ -13,16 +13,16 @@ const NavBar = () => {
         return
     }
     const navItem = <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/instructors'>Instructors</NavLink></li>
-        <li><NavLink to='/classes'>Classes</NavLink></li>
+        <li className="text-lg font-bold text-black"><NavLink to='/'>Home</NavLink></li>
+        <li className="text-lg font-bold text-black"><NavLink to='/instructors'>Instructors</NavLink></li>
+        <li className="text-lg font-bold text-black"><NavLink to='/classes'>Classes</NavLink></li>
         {/* <li><NavLink>Dashboard</NavLink></li> */}
         {/* <li><NavLink to='/signUp'>Sign Up</NavLink></li> */}
         {
             user ? <>
-                <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                <li className="text-lg font-bold text-black"><NavLink to='/dashboard'>Dashboard</NavLink></li>
             </> : <>
-                <li><NavLink to='/signUp'>Sign Up</NavLink></li>
+                <li className="text-lg font-bold text-black"><NavLink to='/signUp'>Sign Up</NavLink></li>
             </>
         }
     </>
@@ -35,7 +35,7 @@ const NavBar = () => {
     }
     return (
         <div className="fixed z-20 md:w-[1280px] w-full">
-            <div className="bg-slate-900">
+            <div className="bg-white">
                 <div className="navbar text-neutral-content activeRoute">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -48,7 +48,7 @@ const NavBar = () => {
 
                             </ul>
                         </div>
-                        <a className="text-2xl font-semibold leading-none">DM Camp <br /> <span className="text-xs border-t-2 ">Dance Master Camp</span></a>
+                        <a className="text-3xl font-bold leading-6 text-black">DM CAMP <br /> <span className="text-sm text-[#ff0800]">Dance Master Camp</span></a>
                     </div>
                     <div className="hidden navbar-center lg:flex">
                         <ul className="px-1 menu menu-horizontal">
@@ -58,10 +58,10 @@ const NavBar = () => {
                     <div className="navbar-end">
                         {
                             user ? <>
-                                <button onClick={handleLogOut} className="btn btn-ghost"><span className="text-red-600">Logout</span></button>
+                                <button onClick={handleLogOut} className="btn btn-ghost"><span className="text-lg text-red-600">Logout</span></button>
                                 <img className="w-[55px] h-[55px] rounded-full" src={userPhoto} alt="" />
                             </> : <>
-                                <span className="mx-8"><NavLink to='/login'>Login</NavLink></span>
+                                <span className="mx-8 text-lg font-semibold text-black"><NavLink to='/login'>Login</NavLink></span>
                             </>
                         }
 

@@ -1,5 +1,4 @@
 import { NavLink, Outlet } from "react-router-dom";
-import NavBar from "../shaered/NavBar/NavBar";
 import { FaMoneyCheck, FaHome, FaUser } from 'react-icons/fa';
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstrucror";
@@ -25,8 +24,6 @@ const Dashboard = () => {
             <Helmet>
                 <title>Summer Dance | Dashboard</title>
             </Helmet>
-
-            <NavBar></NavBar>
             <div className="text-white bg-black bg-opacity-60 drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="flex flex-col items-center pt-28 drawer-content">

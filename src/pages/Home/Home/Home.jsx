@@ -14,7 +14,7 @@ const Home = () => {
     },[])
     const approveClasses = classes.filter(item => item.status === 'approve')
     return (
-        <div className="">
+        <div className="bg-white">
             <Helmet>
                 <title>Summer Dance | Home</title>
             </Helmet>
